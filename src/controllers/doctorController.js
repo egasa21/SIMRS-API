@@ -3,8 +3,8 @@ import Doctor from "../models/Doctor.js";
 
 export const addDoctor = async (req, res, next) => {
     try {
-        const { departmentId } = req.body;
-        const departement = await Departement.findById(departmentId);
+        const { department } = req.body;
+        const departement = await Departement.findById(department);
 
         if (!departement) {
             return res.status(404).json('Department not found')
@@ -12,7 +12,7 @@ export const addDoctor = async (req, res, next) => {
         const newDoctor = new Doctor({
             ...req.body,
             imgUrl: req.file.path,
-            department: departmentId
+            department: department
         });
 
         const savedDoctor = await newDoctor.save();
