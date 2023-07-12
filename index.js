@@ -9,7 +9,7 @@ import userRoute from './src/routes/userRoutes.js'
 import medicineRoute from './src/routes/medicineRoute.js'
 import departmentRoute from './src/routes/departmentRoutes.js'
 import appointmentRoute from './src/routes/appointmentRoutes.js'
-
+import imageRoute from './src/routes/imageRoute.js'
 
 
 const app = express();
@@ -41,6 +41,7 @@ app.use('/api/users', userRoute);
 app.use('/api/medicines', medicineRoute);
 app.use('/api/departments', departmentRoute);
 app.use('/api/appointments', appointmentRoute);
+app.use('/api/images',imageRoute)
 
 app.get('/', (req, res) => {
     res.json({ message: "Hello" })

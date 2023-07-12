@@ -9,7 +9,7 @@ const router = Router();
 router.get('/', verifyUser, getDoctors);
 router.get('/:id', verifyUser, getDoctor);
 router.post('/', verifyUser, upload.single('image'), addDoctor);
-router.put('/:id', verifyUser, updateDoctor);
+router.put('/:id', verifyUser,upload.single('image'), updateDoctor);
 router.delete('/:id', verifyUser, deleteDoctor);
 
 

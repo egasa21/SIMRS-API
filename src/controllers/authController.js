@@ -28,7 +28,7 @@ export const login = async (req, res, next) => {
         const token = createToken(user._id);
         const { password, isAdmin, ...otherDetals } = user._doc;
 
-        res.cookie('access_token', token, { httpOnly: true }).status(200).json({ detail: { ...otherDetals }, isAdmin });
+        res.cookie('access_token', token, { httpOnly: true }).status(200).json({ detail: { ...otherDetals }, token: token, isAdmin });
     } catch (error) {
         next(error)
     }
